@@ -9,7 +9,6 @@ public:
         while(r<n){
             if(nums[r] == nums[r-1] + 1){
                 prefixsum += nums[r];
-                cout << prefixsum << endl;
             }
             else{
                 break;
@@ -17,10 +16,8 @@ public:
             r++;
         }
 
-        // int maxi = *max_element(begin(nums), end(nums));
         while(find(nums.begin(), nums.end(), prefixsum) != nums.end()){
-            prefixsum++;
-            
+            prefixsum++;   
         }
 
         return prefixsum;
