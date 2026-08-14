@@ -7,7 +7,7 @@
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         q = deque()
-        q.append((root,1))
+        q.append((root,0))
         maxlen = 0
         while q:
             size = len(q)
