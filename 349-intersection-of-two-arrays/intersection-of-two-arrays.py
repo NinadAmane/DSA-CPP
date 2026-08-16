@@ -4,8 +4,7 @@ class Solution:
         st2 = set(nums2)
         ans = []
         for x in st1:
-            for y in st2:
-                if(x == y):
-                    ans.append(x)
+            if(x in st2):
+                ans.append(x)
         return ans
         
