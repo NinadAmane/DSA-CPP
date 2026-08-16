@@ -5,11 +5,10 @@ public:
         for(auto& str : strs){
             string key = str;
             sort(key.begin(), key.end());
-
             mp[key].push_back(str);
         }
         
-        // int n = mp.size();
+        
         vector<vector<string>> ans;
         auto it = mp.begin();
         while(it != mp.end()){
