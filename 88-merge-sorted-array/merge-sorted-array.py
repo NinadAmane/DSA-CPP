@@ -3,24 +3,20 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
-        totallen = m + n
-        
-        i = m
-        j=0
-        while i < totallen and j <= n - 1:
-            nums1[i] = nums2[j]
-            i+=1
-            j+=1
+        i = m -1
+        j = n - 1
+        k = m+ n -1
+
+
+        while j >=0:
+            if(i >= 0 and nums1[i] > nums2[j]):
+                nums1[k] = nums1[i]
+                k -= 1
+                i -= 1
+            else:
+                nums1[k] = nums2[j]
+                k-=1
+                j-=1
+
 
         
-        
-        
-
-        
-
-        for l in range(totallen):
-            for r in range(totallen):
-                if nums1[l] < nums1[r]:
-                    nums1[l], nums1[r] = nums1[r], nums1[l]
-
-        print(nums1)
