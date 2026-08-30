@@ -2,10 +2,10 @@ class Solution {
 public:
     int minimumDeletions(vector<int>& nums) {
         int n = nums.size();
-        map<int,int> index; //val , index
-        for(int i=0;i<n;i++){ 
-            index[nums[i]] = i;
-        }
+        // map<int,int> index; //val , index
+        // for(int i=0;i<n;i++){ 
+        //     index[nums[i]] = i;
+        // }
 
         // int maxi = *max_element(nums.begin(), nums.end());
         // int mini = *min_element(nums.begin(), nums.end());
