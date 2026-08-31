@@ -31,9 +31,6 @@ public:
         vector<vector<pair<int,int>>> pairs(n);
         vector<vector<int>> dp(n+1, vector<int>(sum+1,-1));
 
-
-
-
         for(int i=0;i<n;i++){
             int ops = 0;
             int x = nums[i];
@@ -58,6 +55,7 @@ public:
         //     cout << endl;
         // }
 
-        return solve(0,sum,pairs, nums,dp) == 1e9 ? -1 : solve(0,sum,pairs, nums,dp);
+        int ans = solve(0, sum, pairs, nums, dp);
+        return ans == 1e9 ? -1 : ans;
     }
 };
