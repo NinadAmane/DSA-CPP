@@ -11,28 +11,29 @@
  */
 class Solution {
 public:
-    TreeNode* build(vector<int>& preorder, vector<int>& inorder, int left, int right, int& ind){
-        if(left > right) return NULL;
+    TreeNode* build(vector<int>& preorder, vector<int>& inorder, int preStart, int preEnd, int inStart, int inEnd, unordered_map<int,int>& mp){
+        if(preStart > preEnd || inStart > inEnd) return NULL;
 
-        int pivot = left;
-        while(inorder[pivot] != preorder[ind]) pivot++;
+        TreeNode* node = new TreeNode(preorder[preStart]);
 
-        ind++;
-        TreeNode* newNode = new TreeNode(inorder[pivot]);
-        newNode->left = build(preorder,inorder,left, pivot - 1, ind);
-        newNode->right = build(preorder,inorder, pivot+1, right, ind);
+        int pivot = mp[node->val];
+        int left = pivot - inStart;
 
-        return newNode;
+
+        node->left = build(preorder, inorder, preStart+1, preStart + left, inStart, pivot-1, mp);
+
+        node->right = build(preorder, inorder, preStart+1+left, preEnd, pivot+1 , inEnd, mp);
+
+        return node;
 
     }
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         int n = preorder.size();
-        
-        int rootidx = 0;
-
-        auto it = find(inorder.begin(), inorder.end(), preorder[rootidx]);
-        int pivot = it - inorder.begin();
-
-        return build(preorder,inorder, 0,n-1, rootidx);
+        unordered_map<int,int> mp;
+        for(int i=0;i<n;i++){
+            mp[inorder[i]] = i;
+        }
+        TreeNode* root = build(preorder, inorder, 0,n-1, 0,n-1,mp);
+        return root;
     }
 };
