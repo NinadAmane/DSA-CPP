@@ -8,7 +8,7 @@ public:
     //         return jumps;
     //     }
     //     int mini = INT_MAX;
-    //     for(int i=1;i<=nums[ind]  && ind + i < n;i++){
+    //     for(int i=1; i<=nums[ind] && ind + i < n;i++){
     //         mini = min(mini, f(ind + i, jumps + 1, nums));
     //     }
 
@@ -51,8 +51,5 @@ public:
         }
 
         return jumps;
-
-        
-        
     }
 };
